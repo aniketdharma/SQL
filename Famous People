@@ -1,0 +1,57 @@
+/* Create table about the people and what they do here */
+CREATE TABLE moviestars (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  age INTEGER);
+  
+INSERT INTO moviestars (name,age) VALUES ("Deepika Padukone", 30);
+INSERT INTO moviestars (name,age) VALUES ("SALMAN KHAN", 67);
+INSERT INTO moviestars (name,age) VALUES ("Katrina Kaif", 32);
+INSERT INTO moviestars (name,age) VALUES ("Ranveer Singh", 34);
+INSERT INTO moviestars (name,age) VALUES ("Vicky Kaushal", 27);
+INSERT INTO moviestars (name,age) VALUES ("Aniket Dharma", 24);
+
+
+CREATE TABLE movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  person_id INTEGER,
+  titles TEXT);
+  
+INSERT INTO movies (person_id,titles) VALUES (1, "Chennai Express");
+INSERT INTO movies (person_id,titles) VALUES (1, "Chappak");
+INSERT INTO movies (person_id,titles) VALUES (2, "Dabaang");
+INSERT INTO movies (person_id,titles) VALUES (2, "wanted");
+INSERT INTO movies (person_id,titles) VALUES (2, "bajragi bhaijaan");
+INSERT INTO movies (person_id,titles) VALUES (3, "Main hu naa");
+INSERT INTO movies (person_id,titles) VALUES (3, "Zero");
+INSERT INTO movies (person_id,titles) VALUES (4, "Band baja barat");
+INSERT INTO movies (person_id,titles) VALUES (4, "Gully Boy");
+INSERT INTO movies (person_id,titles) VALUES (4, "Ramleela");
+INSERT INTO movies (person_id,titles) VALUES (5, "URI");
+INSERT INTO movies (person_id,titles) VALUES (5, "Bhoot");
+
+CREATE TABLE wife (
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
+   person1_id INTEGER,
+   person2_id INTEGER);
+
+INSERT INTO wife (person1_id,person2_id) VALUES (1,4);
+INSERT INTO wife (person1_id,person2_id) VALUES (3,5);
+SELECT * FROM moviestars;
+SELECT * FROM movies;
+SELECT * FROM wife;
+
+SELECT moviestars.name, movies.titles FROM moviestars
+JOIN movies
+ON moviestars.id = movies.person_id;
+
+SELECT moviestars.name, movies.titles FROM moviestars
+LEFT OUTER JOIN movies
+ON moviestars.id = movies.person_id;
+
+SELECT a.name, b.name FROM wife
+JOIN moviestars a
+ON wife.person1_id = a.id
+JOIN moviestars b
+ON wife.person2_id = b.id;
+
