@@ -1,0 +1,13 @@
+/* What does the app's SQL look like? */
+CREATE TABLE Pes (id INTEGER PRIMARY KEY, player TEXT, clubs TEXT, points INTEGER);
+INSERT INTO pes (player, clubs, points) VALUES ("Aniket", "REAL MADRID", 9);
+INSERT INTO pes (player, clubs, points) VALUES ("Aniruddha", "Juvents", 6);
+INSERT INTO pes (player, clubs, points) VALUES ("MAdhuri",
+"BVB", 10);
+SELECT * FROM Pes;
+ 
+UPDATE Pes SET clubs = "REAL MADRID" WHERE id = 2;
+SELECT * FROM Pes;
+
+DELETE FROM Pes WHERE id=2;
+SELECT * FROM Pes;
